@@ -15,9 +15,26 @@ struct ContentView: View {
   @State private var showModal: Bool = false
   
   var body: some View {
+//    Text("Options")
+//    .contextMenu {
+//        Button(action: {
+//            // change country setting
+//        }) {
+//            Text("Choose Country")
+//            Image(systemName: "globe")
+//        }
+//
+//        Button(action: {
+//            // enable geolocation
+//        }) {
+//            Text("Detect Location")
+//            Image(systemName: "location.circle")
+//        }
+//    }
     NavigationView {
+
       OrderListView(orders: self.orderListVM.orders)
-        
+
         .navigationBarTitle("Coffee Orders")
         .navigationBarItems(leading: Button(action: reloadOrders) {
           Image(systemName: "arrow.clockwise")
@@ -27,7 +44,7 @@ struct ContentView: View {
             Image(systemName: "plus")
               .foregroundColor(Color.white)
         })
-        
+
         .sheet(isPresented: $showModal) {
           AddCoffeeOrderView(isPresented: self.$showModal)
       }

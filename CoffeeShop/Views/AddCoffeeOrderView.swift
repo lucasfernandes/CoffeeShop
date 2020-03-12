@@ -20,7 +20,7 @@ struct AddCoffeeOrderView: View {
             TextField("Enter name", text: self.$addCoffeeOrderVM.name)
           }
           
-          Section(header: Text("SELECT COFFEE").font(.body)) {
+          Section(header: Text("SELECT COFFEE NOW").font(.body)) {
             ForEach(addCoffeeOrderVM.coffeeList, id:\.name) { coffee in
               CoffeeCellView(coffee: coffee, selection: self.$addCoffeeOrderVM.coffeeName)
             }
